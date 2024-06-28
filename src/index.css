@@ -1,11 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Festive&family=Noto+Serif+KR&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Festive&family=Noto+Serif+KR&family=Poor+Story&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
   margin: 0;
