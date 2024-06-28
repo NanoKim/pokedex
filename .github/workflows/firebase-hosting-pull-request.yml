@@ -20,6 +20,7 @@ jobs:
           echo "VITE_APP_ID=${{ secrets.VITE_APP_ID }}" >> .env
           echo "VITE_MEASUREMENT_ID=${{ secrets.VITE_MEASUREMENT_ID }}" >> .env
           cat .env
+      - run: npm install
       - run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
