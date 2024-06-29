@@ -1,4 +1,3 @@
-import React from "react";
 import tw from "tailwind-styled-components";
 import pika from "../static/pika.gif";
 
