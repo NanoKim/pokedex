@@ -71,7 +71,7 @@ const PokemonList = () => {
   };
 
   return (
-    <div className="mx-auto text-right bg-moon-pattern bg-fixed bg-center bg-no-repeat dark:bg-shiny-pattern">
+    <div className="mx-auto text-right bg-sun-pattern bg-fixed bg-center bg-no-repeat dark:bg-shiny-pattern">
       <div className="flex flex-row justify-between">
         <div className="flex flex-row m-3 gap-3">
           <ToggleDark />

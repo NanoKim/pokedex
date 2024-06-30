@@ -36,7 +36,11 @@ export const logout = () => {
 export const deleteUserButton = (user) => {
   deleteUser(user)
     .then(() => {
-      alert("탈퇴 완료...! poke-dex를 이용해주셔서 감사합니다.");
+      Swal.fire({
+        icon: 'success',
+        title: '탈퇴 완료...!',
+        text: 'poke-dex를 이용해주셔서 감사합니다.',
+      });
       useNavigate("/", { replace: true });
     })
     .catch((error) => {
