@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: (theme) => ({
-        "glass-pattern": "url('/src/static/banner.webp')",
+        "glass-pattern": "url('/src/static/banner.png')",
         "moon-pattern": "url('/src/static/moon.png')",
         "shiny-pattern": "url('/src/static/pokemonbg.png')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

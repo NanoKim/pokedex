@@ -34,7 +34,6 @@ const PokemonCard = ({ pokemon, image, type }) => {
 
   const JustCatch = () => {
     let prob = percent * 0.01;
-
     let ran = Math.random();
     if (prob > ran) {
       alert(

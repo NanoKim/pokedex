@@ -1,5 +1,4 @@
 import { useContext } from "react";
-
 import { AuthContext } from "../hooks/UserContext";
 import { SignIn } from "../api/authLogInAndOut";
 

@@ -1,9 +1,7 @@
+// firebase.jsx
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getAnalytics } from "firebase/analytics";
-
-import * as firebase from "firebase/app";
-import * as authService from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_KEY,
@@ -17,10 +15,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-
-const firebaseInstance = firebase;
-
-const provider = new authService.GoogleAuthProvider();
+const provider = new GoogleAuthProvider();
 const analytics = getAnalytics(app);
 
-export { app, auth, firebaseInstance, provider, analytics };
+export { app, auth, provider, analytics };

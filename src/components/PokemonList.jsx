@@ -9,17 +9,12 @@ import Refresh from "../static/refresh.png";
 import PokemonCard from "../view/PokemonCard";
 import axios from "axios";
 
-const CardBox = tw.div`
-flex flex-row flex-wrap items-center gap-3 gap-y-5 md:gap-y-6
-justify-around mx-auto 
-`;
+const CardBox = tw.div`flex flex-row flex-wrap items-center gap-3 gap-y-5 md:gap-y-6 justify-around mx-auto`;
 
 const PokemonList = () => {
   const num = useGenerateNumber(1, 880);
   const [loading, setLoading] = useState(true);
-  const [pageNum, setPageNum] = useState(
-    `https://pokeapi.co/api/v2/pokemon/?limit=20&offset=${num}`
-  );
+  const [pageNum, setPageNum] = useState(`https://pokeapi.co/api/v2/pokemon/?limit=20&offset=${num}`);
 
   const [next, setNext] = useState(true);
   const [lastElement, setLastElement] = useState(null);
@@ -76,10 +71,7 @@ const PokemonList = () => {
   };
 
   return (
-    <div
-      className="mx-auto text-right bg-moon-pattern bg-fixed bg-center bg-no-repeat dark:bg-shiny-pattern
-    "
-    >
+    <div className="mx-auto text-right bg-moon-pattern bg-fixed bg-center bg-no-repeat dark:bg-shiny-pattern">
       <div className="flex flex-row justify-between">
         <div className="flex flex-row m-3 gap-3">
           <ToggleDark />
