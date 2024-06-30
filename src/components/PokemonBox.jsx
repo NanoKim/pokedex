@@ -17,25 +17,18 @@ const PokemonBox = () => {
 
   return (
     <>
-      <div className="flex flex-row p-3 gap-3 bg-sky-300 dark:bg-sky-600">
-        <ToggleDark />
-        <ToggleLang />
+      {/* <div className="flex flex-row p-3 gap-3 bg-sky-300 dark:bg-sky-600"> */}
+      <div className="flex flex-row">
+        <div className="flex flex-row m-3 gap-3">
+          <ToggleDark />
+          <ToggleLang />
+        </div>
+        <div className="flex-grow"></div>
         {user && (
-          <>
-            <Link
-              to="/"
-              className="p-2 md:p-4 text-sm md:text-base flex items-end  text-white drop-shadow-lg"
-              onClick={logout}
-            >
-              로그아웃
-            </Link>
-            <button
-              onClick={() => deleteUserButton(user)}
-              className="p-2 md:p-4 text-sm md:text-base flex items-end  text-white drop-shadow-lg"
-            >
-              탈퇴
-            </button>
-          </>
+          <div className="flex gap-3">
+            <Link to="/" className="p-2 md:p-4 text-sm md:text-base flex items-end text-gray dark:text-white drop-shadow-lg" onClick={logout}>로그아웃</Link>
+            <button onClick={() => deleteUserButton(user)} className="p-2 md:p-4 text-sm md:text-base flex items-end text-gray dark:text-white drop-shadow-lg">탈퇴</button>
+          </div>
         )}
       </div>
       {!user && (
@@ -48,7 +41,7 @@ const PokemonBox = () => {
       {user && (
         <>
           <OuterBox>
-            <Title>{t("pokemon_box")}</Title>
+            {/* <Title>{t("pokemon_box")}</Title> */}
 
             <div>
               <InnerBox>
@@ -94,23 +87,8 @@ const PokemonBox = () => {
 
 export default PokemonBox;
 
-const Card = tw.div`
- rounded-md w-[12rem] py-3 m-5 md:-ml-3 h-44
- items-center bg-[#FFFFFF80] shadow-md 
-`;
-
-const OuterBox = tw.div`
-flex justify-center flex-col md:flex-row bg-shiny-pattern bg-repeat-y min-h-screen
-`;
-
-const Title = tw.h1`
-text-4xl p-4 mb-5 overline decoration-sky-300 mx-auto lg:mr-auto dark:text-white md:w-14
-`;
-
-const InnerBox = tw.div`
-flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-end md:ml-4
-`;
-
-const SubTitle = tw.p`
-text-center text-pink-400 text-lg dark:text-white w-full p-10
-`;
+const Card = tw.div`rounded-md w-[12rem] py-3 m-5 md:-ml-3 h-44 items-center bg-[#FFFFFF80] shadow-md `;
+const OuterBox = tw.div`flex justify-center flex-col md:flex-row bg-center bg-dark-pattern bg-no-repeat min-h-screen`;
+const Title = tw.h1`text-4xl p-4 mb-5 overline decoration-sky-300 mx-auto lg:mr-auto dark:text-white md:w-14`;
+const InnerBox = tw.div`flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-end md:ml-4`;
+const SubTitle = tw.p`text-center text-pink-400 text-lg dark:text-white w-full p-10`;

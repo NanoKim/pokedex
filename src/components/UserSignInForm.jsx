@@ -11,7 +11,9 @@ const UserSignInForm = () => {
           <SignIn />
         </>
       ) : (
-        ""
+        <>
+          <div style={{ width: '50px', height: '50px', visibility: 'hidden' }}></div>
+        </>
       )}
     </>
   );

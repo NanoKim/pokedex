@@ -71,18 +71,14 @@ const PokemonList = () => {
   };
 
   return (
-    <div className="mx-auto text-right bg-sun-pattern bg-fixed bg-center bg-no-repeat dark:bg-shiny-pattern">
+    <div className="mx-auto text-right bg-sun-pattern bg-fixed bg-center bg-no-repeat dark:bg-dark-pattern">
       <div className="flex flex-row justify-between">
         <div className="flex flex-row m-3 gap-3">
           <ToggleDark />
           <ToggleLang />
         </div>
-
-        <button
-          onClick={callList}
-          className="w-12 p-2 mr-2 hover:animate-spin transition-transform delay-300 duration-500"
-        >
-          <img src={Refresh} alt="새로고침" className="drop-shadow-md" />
+        <button onClick={callList} className="w-12 p-2 mr-2 hover:animate-spin transition-transform delay-300 duration-500">
+          <img src={Refresh} className="drop-shadow-md" />
         </button>
       </div>
       <CardBox>

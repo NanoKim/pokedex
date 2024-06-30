@@ -7,9 +7,9 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: (theme) => ({
-        "glass-pattern": "url('/src/static/banner.png')",
+        "header-pattern": "url('/src/static/banner.png')",
         "sun-pattern": "url('/src/static/sun.png')",
-        "shiny-pattern": "url('/src/static/pokemonbg.png')",
+        "dark-pattern": "url('/src/static/dark.png')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "share-pattern": "url('/src/static/sharePage.png')",
       }),
