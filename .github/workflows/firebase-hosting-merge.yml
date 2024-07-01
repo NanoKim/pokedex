@@ -34,6 +34,12 @@ jobs:
       - run: npm install
       - run: npm run build
 
+      - name: Authenticate to Firebase
+         run: |
+           echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT_POKEDEX_4D580 }}" > ${HOME}/firebase-key.json
+           gcloud auth activate-service-account --key-file ${HOME}/firebase-key.json
+           firebase login:ci --token ${{ secrets.FIREBASE_TOKEN }}
+ 
       - name: Upload to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
