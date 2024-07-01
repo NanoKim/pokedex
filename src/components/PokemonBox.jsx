@@ -18,7 +18,7 @@ const PokemonBox = () => {
   return (
     <>
       {/* <div className="flex flex-row p-3 gap-3 bg-sky-300 dark:bg-sky-600"> */}
-      <div className="flex flex-row">
+      <div className="flex flex-row border-b border-gray-300 dark:border-gray-700">
         <div className="flex flex-row m-3 gap-3">
           <ToggleDark />
           <ToggleLang />

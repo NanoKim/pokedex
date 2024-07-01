@@ -15,7 +15,7 @@ const Header = () => {
       {!user ? ("") : (
         <Link to="/poke-box" className="p-2 md:p-4 text-sm md:text-base text-gray dark:text-white box-decoration-clone drop-shadow-lg">포켓몬박스</Link>
       )}
-      <Link to="/poke-custom" className="p-2 md:p-4 text-sm md:text-base text-gray dark:text-white box-decoration-clone drop-shadow-lg">검색하기</Link>
+      <Link to="/poke-custom" className="p-2 md:p-4 text-sm md:text-base text-gray dark:text-white box-decoration-clone drop-shadow-lg">랜덤뽑기</Link>
 
       <PikaHeaderAnimation src={PikaHeader} />
       <PokeBallAnimation src={PokeBall} />

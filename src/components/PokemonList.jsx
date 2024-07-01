@@ -84,8 +84,7 @@ const PokemonList = () => {
       <CardBox>
         {pokemons.length > 0 &&
           pokemons.map((pokemon, i) => {
-            const pokemonIndex =
-              pokemon.url.split("/")[pokemon.url.split("/").length - 2];
+            const pokemonIndex = pokemon.url.split("/")[pokemon.url.split("/").length - 2];
             const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonIndex}.png`;
             return i === pokemons.length - 1 && !loading && !end ? (
               <div key={`${i}-${pokemon.name}`} ref={setLastElement}>

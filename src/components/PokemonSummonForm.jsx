@@ -9,19 +9,16 @@ import tw from "tailwind-styled-components";
 import axios from "axios";
 import ToggleDark from "../elements/ToggleDark";
 import ToggleLang from "../elements/ToggleLang";
+import Random from "../static/random.png";
 
 const PokemonForm = () => {
   let navigate = useNavigate();
   const { t } = useTranslation();
-  const [pokemonName, setPokemonName] = useState();
   const [pokemon, setPokemon] = useState({});
   const num_Shiny = useGenerateNumber(1, 10);
   const num = useGenerateNumber(1, 898);
   const { captureFB } = useContext(PokemonContext);
   const { user } = useContext(AuthContext);
-  const handleNameOnChange = (e) => {
-    setPokemonName(e.target.value);
-  };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -29,7 +26,7 @@ const PokemonForm = () => {
 
   const callPokemon = () => {
     if (!user) return alert(t("log_in_and_capture_pokemons"));
-    if (!pokemonName) return alert(t("type_anything_and_press_enter"));
+
     try {
       setTimeout(async () => {
         const response = await axios.get(
@@ -47,13 +44,17 @@ const PokemonForm = () => {
         }
       }, 100);
     } catch (error) {
-      alert("실패");
+      Swal.fire({
+        icon: 'error',
+        title: '실패!',
+        confirmButtonText: '확인'
+      });
     }
   };
 
   return (
     <>
-      <div className="flex flex-row p-3 gap-3 bg-amber-400 dark:bg-amber-900">
+      <div className="flex flex-row p-3 gap-3 border-b border-gray-300 dark:border-gray-700">
         <ToggleDark />
         <ToggleLang />
       </div>
@@ -64,30 +65,17 @@ const PokemonForm = () => {
         <p className="text-xl dark:text-white p-5">
           {t("type_anything_and_press_enter")}
         </p>
-        <form
-          onSubmit={handleFormSubmit}
-          className="flex flex-col md:flex-row justify-center items-center"
-        >
-          <input
-            type="text"
-            placeholder={t("here")}
-            className="ring-2 ring-yellow-400 outline-none"
-            onChange={handleNameOnChange}
-          />
-          <button
-            onClick={callPokemon}
-            className="rounded-md dark:text-white ml-3 border hover:bg-amber-400 active:bg-amber-600 hover:text-white opacity-0 md:opacity-100"
-          >
-            {t("type_random_text")}
-          </button>
+        <form onSubmit={handleFormSubmit} className="flex flex-col justify-center items-center" >
+        <button onClick={callPokemon} className="rounded-md dark:text-white w-20 mr-2 border hover:bg-amber-400 active:bg-amber-600 hover:text-white opacity-0 md:opacity-100">
+          <img src={Random} className="drop-shadow-md" />
+        </button>
+        <p className="text-xl dark:text-white p-5">
+          {t("type_random_text")}
+        </p>
         </form>
         {pokemon && pokemon.id && (
           <div className="mx-auto flex flex-col justify-center items-center">
-            <img
-              src={pokemon?.img}
-              alt=""
-              className="animate-bounce object-contain max-w-fit"
-            />
+            <img src={pokemon?.img} className="animate-bounce object-contain max-w-fit" />
             <p className="text-2xl dark:text-white">???</p>
             <CatchButton onClick={() => navigate("/poke-box")}>
               <div
@@ -110,11 +98,5 @@ const PokemonForm = () => {
 
 export default PokemonForm;
 
-const CatchButton = tw.button`
- border text-sm rounded-md hover:bg-blue-300 hover:text-white px-1 mx-1 lg:px-0 lg:mx-0
- hover:border-blue-300 active:bg-yellow-200 active:border-yellow-200 dark:text-white
-`;
-
-const FlexBox = tw.div`
-flex justify-center items-center flex-col gap-7 w-full h-screen
-`;
+const CatchButton = tw.button`border text-sm rounded-md hover:bg-blue-300 hover:text-white px-1 mx-1 lg:px-0 lg:mx-0 hover:border-blue-300 active:bg-yellow-200 active:border-yellow-200 dark:text-white`;
+const FlexBox = tw.div`flex justify-center items-center flex-col gap-7 w-full h-screen`;
