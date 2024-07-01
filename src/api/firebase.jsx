@@ -15,7 +15,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+const auth = getAuth(app); 
 const provider = new GoogleAuthProvider();
 const analytics = getAnalytics(app);
 const firestore = getFirestore(app); // Firestore 초기화
