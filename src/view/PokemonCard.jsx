@@ -46,12 +46,29 @@ const PokemonCard = ({ pokemon, image, type }) => {
               : translateName(pokemonIndex, 3),
         })
       );
-      return captureFB({
-        pokemonId: pokemonIndex,
+      const captureData = {
+        pokemonId: parseInt(pokemonIndex, 10),
         imgUrl: image,
         uid: user?.uid,
         type: 0,
-      });
+      };
+      console.log('Capture Data:', captureData);
+      // return captureFB(captureData);
+      captureFB(captureData)();
+      // const captureData = {
+      //   pokemonId: parseInt(pokemonIndex, 10),
+      //   imgUrl: image,
+      //   uid: user?.uid,
+      //   type: 0,
+      // };
+      // captureFB({
+      //   pokemonId: parseInt(pokemonIndex, 10),
+      //   imgUrl: image,
+      //   uid: user?.uid,
+      //   type: 0,
+      // })
+      // console.log('Capture Data:', captureData);
+      // return ;
     } else {
       alert(
         t("capture_failed", {
