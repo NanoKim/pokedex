@@ -11,13 +11,20 @@ const PokeProvider = (props) => {
   const capture = (pokemon) => () => dispatch({ type: CAPTURE, pokemon });
   const captureFB =
     ({ pokemonId, imgUrl, uid, type }) =>
-    () =>
+    () =>{
+      console.log("Saving Pokemon with the following details:", {
+        pokemonId,
+        imgUrl,
+        uid,
+        type,
+      });
       savePokemon({
         pokemonId: pokemonId,
         imgUrl: imgUrl,
         uid: uid,
         type: type,
       });
+    }
   const releaseFB = (id) => () => releasePokemon(id);
   const release = (pokemon) => () => dispatch({ type: RELEASE, pokemon });
   const addPokemon = (pokemon) => dispatch({ type: ADD_POKEMON, pokemon });

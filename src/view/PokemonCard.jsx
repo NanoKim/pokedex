@@ -36,7 +36,6 @@ const PokemonCard = ({ pokemon, image, type }) => {
   const JustCatch = () => {
     let prob = percent * 0.01;
     let ran = Math.random();
-    console.log(`확률: ${prob}, 랜덤 값: ${ran}`); // 디버깅용 로그
     
     if (prob > ran) {
       alert(
