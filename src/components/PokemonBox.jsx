@@ -1,13 +1,14 @@
-import { useContext } from "react";
-import { AuthContext } from "../hooks/UserContext";
+import MyPokemonCard from "../view/MyPokemonCard";
 import ToggleDark from "../elements/ToggleDark";
 import ToggleLang from "../elements/ToggleLang";
-import { useTranslation } from "react-i18next";
-import { CapturedPokemons } from "../api/getCapturedPokemon";
-import { Link } from "react-router-dom";
 import tw from "tailwind-styled-components";
-import MyPokemonCard from "../view/MyPokemonCard";
+
 import { deleteUserButton, logout } from "../api/authLogInAndOut";
+import { CapturedPokemons } from "../api/getCapturedPokemon";
+import { AuthContext } from "../hooks/UserContext";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
 
 const PokemonBox = () => {
   const { user } = useContext(AuthContext);
@@ -53,9 +54,9 @@ const PokemonBox = () => {
                           <>
                             <MyPokemonCard
                               pokemonId={doc.data().pokemonId}
-                              imgUrl={doc.data().imgUrl}
-                              type={doc.data().type}
-                              id={doc.id}
+                              imgUrl   ={doc.data().imgUrl}
+                              type     ={doc.data().type}
+                              id       ={doc.id}
                             />
                           </>
                         ) : (
@@ -87,8 +88,8 @@ const PokemonBox = () => {
 
 export default PokemonBox;
 
-const Card = tw.div`rounded-md w-[12rem] py-3 m-5 md:-ml-3 h-44 items-center bg-[#FFFFFF80] shadow-md `;
-const OuterBox = tw.div`flex justify-center flex-col md:flex-row bg-center bg-dark-pattern bg-no-repeat min-h-screen`;
-const Title = tw.h1`text-4xl p-4 mb-5 overline decoration-sky-300 mx-auto lg:mr-auto dark:text-white md:w-14`;
-const InnerBox = tw.div`flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-end md:ml-4`;
 const SubTitle = tw.p`text-center text-pink-400 text-lg dark:text-white w-full p-10`;
+const Title    = tw.h1`text-4xl p-4 mb-5 overline decoration-sky-300 mx-auto lg:mr-auto dark:text-white md:w-14`;
+const Card     = tw.div`rounded-md w-[12rem] py-3 m-5 md:-ml-3 h-44 items-center bg-[#FFFFFF80] shadow-md `;
+const OuterBox = tw.div`flex justify-center flex-col md:flex-row bg-center bg-dark-pattern bg-no-repeat min-h-screen`;
+const InnerBox = tw.div`flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-end md:ml-4`;

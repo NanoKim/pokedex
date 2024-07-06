@@ -1,15 +1,15 @@
-import { useContext, useState } from "react";
 import { useGenerateNumber } from "../hooks/useGenerateNumber";
 import { PokemonContext } from "../hooks/PokemonContext";
 import { AuthContext } from "../hooks/UserContext";
-import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
 
-import tw from "tailwind-styled-components";
-import axios from "axios";
 import ToggleDark from "../elements/ToggleDark";
 import ToggleLang from "../elements/ToggleLang";
+import tw from "tailwind-styled-components";
 import Random from "../static/random.png";
+import axios from "axios";
 
 const PokemonForm = () => {
   let navigate = useNavigate();
@@ -81,9 +81,9 @@ const PokemonForm = () => {
               <div
                 onClick={captureFB({
                   pokemonId: pokemon?.id,
-                  imgUrl: pokemon?.img,
-                  uid: user?.uid,
-                  type: pokemon?.type,
+                  imgUrl   : pokemon?.img,
+                  uid      : user?.uid,
+                  type     : pokemon?.type,
                 })}
               >
                 {t("just_capture")}
@@ -99,4 +99,4 @@ const PokemonForm = () => {
 export default PokemonForm;
 
 const CatchButton = tw.button`border text-sm rounded-md hover:bg-blue-300 hover:text-white px-1 mx-1 lg:px-0 lg:mx-0 hover:border-blue-300 active:bg-yellow-200 active:border-yellow-200 dark:text-white`;
-const FlexBox = tw.div`flex justify-center items-center flex-col gap-7 w-full h-screen`;
+const FlexBox     = tw.div`flex justify-center items-center flex-col gap-7 w-full h-screen`;

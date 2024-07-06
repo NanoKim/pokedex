@@ -1,14 +1,14 @@
 import tw from "tailwind-styled-components";
 import Swal from 'sweetalert2';
 
-import { useContext } from "react";
+import { useGenerateNumber } from "../hooks/useGenerateNumber";
+import { translateName } from "../hooks/useTranslateName";
+import { PokemonContext } from "../hooks/PokemonContext";
+import { LangContext } from "../hooks/LangContext";
+import { AuthContext } from "../hooks/UserContext";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { translateName } from "../hooks/useTranslateName";
-import { useGenerateNumber } from "../hooks/useGenerateNumber";
-import { LangContext } from "../hooks/LangContext";
-import { PokemonContext } from "../hooks/PokemonContext";
-import { AuthContext } from "../hooks/UserContext";
+import { useContext } from "react";
 
 const PokemonCard = ({ pokemon, image, type }) => {
   const { t } = useTranslation();
@@ -52,23 +52,7 @@ const PokemonCard = ({ pokemon, image, type }) => {
         uid: user?.uid,
         type: 0,
       };
-      console.log('Capture Data:', captureData);
-      // return captureFB(captureData);
-      captureFB(captureData)();
-      // const captureData = {
-      //   pokemonId: parseInt(pokemonIndex, 10),
-      //   imgUrl: image,
-      //   uid: user?.uid,
-      //   type: 0,
-      // };
-      // captureFB({
-      //   pokemonId: parseInt(pokemonIndex, 10),
-      //   imgUrl: image,
-      //   uid: user?.uid,
-      //   type: 0,
-      // })
-      // console.log('Capture Data:', captureData);
-      // return ;
+      return captureFB(captureData)();
     } else {
       alert(
         t("capture_failed", {

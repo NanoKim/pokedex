@@ -1,10 +1,11 @@
-import { auth } from "./firebase";
-import { useContext } from "react";
-import { AuthContext } from "../hooks/UserContext";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import GoogleIcon from "../static/googleIcon.png";
-import { deleteUser } from "firebase/auth";
+
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { AuthContext } from "../hooks/UserContext";
 import { useNavigate } from "react-router-dom";
+import { deleteUser } from "firebase/auth";
+import { useContext } from "react";
+import { auth } from "./firebase";
 
 export const SignIn = () => {
   const { user } = useContext(AuthContext);
@@ -37,9 +38,9 @@ export const deleteUserButton = (user) => {
   deleteUser(user)
     .then(() => {
       Swal.fire({
-        icon: 'success',
+        icon : 'success',
         title: '탈퇴 완료...!',
-        text: 'poke-dex를 이용해주셔서 감사합니다.',
+        text : 'poke-dex를 이용해주셔서 감사합니다.',
       });
       useNavigate("/", { replace: true });
     })

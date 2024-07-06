@@ -22,6 +22,7 @@
     "fast-glob": "^3.3.2",
     "firebase": "^10.12.2",
     "glob": "^10.4.2",
+    "html2canvas": "^1.4.1",
     "i18next": "^23.11.5",
     "lodash": "^4.17.21",
     "os-browserify": "^0.3.0",

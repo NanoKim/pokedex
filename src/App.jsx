@@ -1,13 +1,14 @@
-import { Routes, Route } from "react-router-dom";
+import PokemonForm from "./components/PokemonSummonForm";
+import PokemonShare from "./components/PokemonShare";
 import PokemonList from "./components/PokemonList";
 import PokemonBox from "./components/PokemonBox";
-import PokemonForm from "./components/PokemonSummonForm";
 import PokemonDetail from "./view/PokemonDetail";
-import PokemonShare from "./components/PokemonShare";
 import Header from "./view/Header";
+
 import { AuthProvider } from "./hooks/UserContext";
 import { DarkProvider } from "./hooks/DarkContext";
 import { LangProvider } from "./hooks/LangContext";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (

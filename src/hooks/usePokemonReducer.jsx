@@ -1,6 +1,7 @@
-import { useReducer } from "react";
 import _ from "lodash";
+
 import { CAPTURE, RELEASE, ADD_POKEMON, ADD_POKEMONS } from "./actions";
+import { useReducer } from "react";
 
 const getCapturedPokemons = (capturedPokemons, releasedPokemon) =>
   _.filter(capturedPokemons, (pokemon) => pokemon !== releasedPokemon);

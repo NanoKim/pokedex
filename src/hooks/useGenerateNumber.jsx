@@ -7,5 +7,3 @@ export const useGenerateNumber = (min, max) => {
     return Math.floor(Math.random() * (799 - 1 + 1)) + 1;
   else return randomNumber;
 };
-
-//898

@@ -1,13 +1,14 @@
-import { useState, useEffect, useContext, useRef } from "react";
-import { PokemonContext } from "../hooks/PokemonContext";
-import { useGenerateNumber } from "../hooks/useGenerateNumber";
-import Spinner from "../elements/Spinner";
 import ToggleDark from "../elements/ToggleDark";
 import ToggleLang from "../elements/ToggleLang";
+import PokemonCard from "../view/PokemonCard";
 import tw from "tailwind-styled-components";
 import Refresh from "../static/refresh.png";
-import PokemonCard from "../view/PokemonCard";
+import Spinner from "../elements/Spinner";
 import axios from "axios";
+
+import { useState, useEffect, useContext, useRef } from "react";
+import { useGenerateNumber } from "../hooks/useGenerateNumber";
+import { PokemonContext } from "../hooks/PokemonContext";
 
 const CardBox = tw.div`flex flex-row flex-wrap items-center gap-3 gap-y-5 md:gap-y-6 justify-around mx-auto`;
 

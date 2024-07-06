@@ -1,5 +1,5 @@
-import _ from "lodash";
 import translate from "../static/lang_list.json";
+import _ from "lodash";
 
 export const translateName = (id, lang) => {
   let ko_name = _.find(translate, function (friend) {

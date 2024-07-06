@@ -2,6 +2,7 @@ import React, { createContext } from "react";
 import { usePokemonReducer } from "./usePokemonReducer";
 import { CAPTURE, RELEASE, ADD_POKEMON, ADD_POKEMONS } from "./actions";
 import { savePokemon, releasePokemon } from "../api/postAndDeletePokemon";
+
 const PokemonContext = createContext();
 
 const PokeProvider = (props) => {
@@ -12,12 +13,6 @@ const PokeProvider = (props) => {
   const captureFB =
     ({ pokemonId, imgUrl, uid, type }) =>
     () =>{
-      console.log("Saving Pokemon with the following details:", {
-        pokemonId,
-        imgUrl,
-        uid,
-        type,
-      });
       savePokemon({
         pokemonId: pokemonId,
         imgUrl: imgUrl,

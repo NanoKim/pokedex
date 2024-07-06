@@ -1,8 +1,9 @@
-import { useState, useContext, useEffect } from "react";
 import tw from "tailwind-styled-components";
-import "./Toggle.css";
 import DarkmodeIcon from "../static/darkmodeIcon.png";
 import SunIcon from "../static/sunIcon.png";
+import "./Toggle.css";
+
+import { useState, useContext } from "react";
 import { DarkContext } from "../hooks/DarkContext";
 
 const ToggleDark = (darkMode, setDarkMode) => {
@@ -28,15 +29,11 @@ const ToggleDark = (darkMode, setDarkMode) => {
               className="sr-only peer"
             />
             <div className="block bg-gray-500 w-14 h-8 rounded-full"></div>
-
-            <div
-              className="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition peer-checked:bg-purple-600
-            "
-            >
+            <div className="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition peer-checked:bg-purple-600">
               {isChecked ? (
-                <img src={DarkmodeIcon} alt="" />
+                <img src={DarkmodeIcon} />
               ) : (
-                <img src={SunIcon} alt="" />
+                <img src={SunIcon} />
               )}
             </div>
           </div>
