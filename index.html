@@ -21,7 +21,7 @@
       if (/iphone|ipad|ipod/.test(userAgent)) {
         const hasReloaded = sessionStorage.getItem("hasReloaded");
         if (!hasReloaded) {
-          const newUrl = "safari-" + window.location.href;
+          const newUrl = "https://safari-" + window.location.href.split('//')[1];
           sessionStorage.setItem("hasReloaded", "true");
           window.location.href = newUrl;
         }
