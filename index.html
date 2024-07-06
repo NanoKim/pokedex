@@ -8,8 +8,10 @@
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/)) {
-        if (!window.location.href.startsWith("intent:")) {
+        const hasReloaded = sessionStorage.getItem("hasReloaded");
+        if (!hasReloaded) {
           const newUrl = "intent://" + window.location.href.split('//')[1] + "#Intent;scheme=https;package=com.android.chrome;end";
+          sessionStorage.setItem("hasReloaded", "true");
           window.location.href = newUrl;
         }
       }
