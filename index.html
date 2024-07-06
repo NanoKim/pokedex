@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>pokedex</title>
     <script>
-      window.location.href = "googlechrome://navigate?url=" + window.location.href;
+      if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/)) {
+        window.location.href = "intent://" + window.location.href.split('//')[1] + "#Intent;scheme=https;package=com.android.chrome;end";
+      }
     </script>
   </head>
   <body>
