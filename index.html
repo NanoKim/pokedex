@@ -21,7 +21,7 @@
       if (/iphone|ipad|ipod/.test(userAgent)) {
         const hasReloaded = sessionStorage.getItem("hasReloaded");
         if (!hasReloaded) {
-          const newUrl = "googlechrome://" + window.location.href.split('//')[1];
+          const newUrl = "safari-" + window.location.href;
           sessionStorage.setItem("hasReloaded", "true");
           window.location.href = newUrl;
         }
