@@ -67,8 +67,10 @@ const PokemonBox = () => {
                   </>
                 )}
               </InnerBox>
-              {capturedPokemonList <= 4 && (
+              {capturedPokemonList <= 6 && (
                 <div className="flex justify-center lg:justify-end flex-row flex-wrap items-center">
+                  <Card />
+                  <Card />
                   <Card />
                   <Card />
                   <Card />
@@ -92,4 +94,4 @@ const SubTitle = tw.p`text-center text-pink-400 text-lg dark:text-white w-full p
 const Title    = tw.h1`text-4xl p-4 mb-5 overline decoration-sky-300 mx-auto lg:mr-auto dark:text-white md:w-14`;
 const Card     = tw.div`rounded-md w-[12rem] py-3 m-5 md:-ml-3 h-44 items-center bg-[#FFFFFF80] shadow-md `;
 const OuterBox = tw.div`flex justify-center flex-col md:flex-row bg-center bg-dark-pattern bg-no-repeat min-h-screen`;
-const InnerBox = tw.div`flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-end md:ml-4`;
+const InnerBox = tw.div`flex flex-col sm:flex-row flex-wrap items-center justify-center md:ml-4`;

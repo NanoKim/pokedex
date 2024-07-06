@@ -18,19 +18,33 @@
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const userAgent = navigator.userAgent.toLowerCase();
-      if (/iphone|ipad|ipod/.test(userAgent)) {
-        const hasReloaded = sessionStorage.getItem("hasReloaded");
-        if (!hasReloaded) {
+      const isKakao = /kakaotalk/.test(userAgent);
+      const isIOS = /iphone|ipad|ipod/.test(userAgent);
+      const isAndroid = /android/.test(userAgent);
+
+      if (isKakao) {
+        if (isIOS) {
           const newUrl = "https://safari-" + window.location.href.split('//')[1];
-          sessionStorage.setItem("hasReloaded", "true");
+          window.location.href = "kakaoweb://navigate?url=" + encodeURIComponent(newUrl);
+        } else if (isAndroid) {
+          const newUrl = "intent://" + window.location.href.split('//')[1] + "#Intent;scheme=https;package=com.android.chrome;end";
           window.location.href = newUrl;
         }
-      } else if (/android/.test(userAgent)) {
-        const hasReloaded = sessionStorage.getItem("hasReloaded");
-        if (!hasReloaded) {
-          const newUrl = "intent://" + window.location.href.split('//')[1] + "#Intent;scheme=https;package=com.android.chrome;end";
-          sessionStorage.setItem("hasReloaded", "true");
-          window.location.href = newUrl;
+      } else {
+        if (isIOS) {
+          const hasReloaded = sessionStorage.getItem("hasReloaded");
+          if (!hasReloaded) {
+            const newUrl = "https://safari-" + window.location.href.split('//')[1];
+            sessionStorage.setItem("hasReloaded", "true");
+            window.location.href = newUrl;
+          }
+        } else if (isAndroid) {
+          const hasReloaded = sessionStorage.getItem("hasReloaded");
+          if (!hasReloaded) {
+            const newUrl = "intent://" + window.location.href.split('//')[1] + "#Intent;scheme=https;package=com.android.chrome;end";
+            sessionStorage.setItem("hasReloaded", "true");
+            window.location.href = newUrl;
+          }
         }
       }
     });
