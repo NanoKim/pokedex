@@ -1,5 +1,6 @@
 const functions = require('firebase-functions');
 const express = require('express');
+const request = require('request');
 const app = express();
 
 app.use((req, res, next) => {
@@ -10,6 +11,19 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use('/proxy', (req, res) => {
+  const url = req.query.url;
+  if (!url) {
+    return res.status(400).send('url query parameter is required');
+  }
+
+  request({
+    url: url,
+    headers: {
+      'User-Agent': req.headers['user-agent']
+    }
+  }).pipe(res);
+});
 
 app.use(express.static('public'));
 
