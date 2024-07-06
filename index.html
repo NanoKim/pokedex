@@ -6,10 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pokedex</title>
   <script>
-    if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/)) {
-      const newUrl = "intent://" + window.location.href.split('//')[1] + "#Intent;scheme=https;package=com.android.chrome;end";
-      window.location.href = newUrl;
-    }
+    document.addEventListener("DOMContentLoaded", function () {
+      if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/)) {
+        const newUrl = "intent://" + window.location.href.split('//')[1] + "#Intent;scheme=https;package=com.android.chrome;end";
+        window.location.href = newUrl;
+      }
+    });
   </script>
 </head>
 
