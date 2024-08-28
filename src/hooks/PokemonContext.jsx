@@ -15,9 +15,9 @@ const PokeProvider = (props) => {
     () =>{
       savePokemon({
         pokemonId: pokemonId,
-        imgUrl: imgUrl,
-        uid: uid,
-        type: type,
+        imgUrl   : imgUrl,
+        uid      : uid,
+        type     : type,
       });
     }
   const releaseFB = (id) => () => releasePokemon(id);

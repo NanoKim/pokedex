@@ -48,9 +48,9 @@ const PokemonCard = ({ pokemon, image, type }) => {
       );
       const captureData = {
         pokemonId: parseInt(pokemonIndex, 10),
-        imgUrl: image,
-        uid: user?.uid,
-        type: 0,
+        imgUrl   : image,
+        uid      : user?.uid,
+        type     : 0,
       };
       return captureFB(captureData)();
     } else {
@@ -81,7 +81,7 @@ const PokemonCard = ({ pokemon, image, type }) => {
       <p className="text-right mr-4">
         {t("catch_rate")} {parseInt(percent)}%
       </p>
-      <CardImage src={image} alt="" />
+      <CardImage src={image} />
       {type === "capture" && user?.uid ? (
         <>
           <FlexBox>

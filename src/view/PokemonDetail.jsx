@@ -71,9 +71,9 @@ const PokemonDetail = () => {
               <div
                 onClick={captureFB({
                   pokemonId: detail.pId,
-                  imgUrl: detail.img,
-                  uid: user?.uid,
-                  type: detail.type,
+                  imgUrl   : detail.img,
+                  uid      : user?.uid,
+                  type     : detail.type,
                 })}
               >
                 <SerectTri>▶ </SerectTri>
